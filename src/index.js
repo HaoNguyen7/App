@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 const app = express();
 const port = 3005;
 
+const route = require('./routes')
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
     express.urlencoded({
@@ -12,7 +13,7 @@ app.use(
     }),
 );
 
-        app.use(express.json());
+app.use(express.json());
 app.use(morgan('combined'));
 // template engine
 app.engine(
@@ -24,18 +25,9 @@ app.engine(
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
-app.get('/', (req, res) => {
-    return res.render('home');
-});
-app.get('/news', (req, res) => {
-    return res.render('news');
-});
-app.get('/search', (req, res) => {
-    return res.render('search');
-});
-app.post('/search', (req, res) => {
-    return res.render('');
-});
-        app.listen(port, () => {
-    console.log(`Server starting at port ${port}`);
+//route  init
+route(app)
+
+app.listen(port, () => {
+    console.log(`Server starting at port ${port}`               );
 });
