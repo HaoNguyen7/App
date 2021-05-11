@@ -12,7 +12,7 @@ app.use(
     }),
 );
 
-app.use(express.json());
+        app.use(express.json());
 app.use(morgan('combined'));
 // template engine
 app.engine(
@@ -36,6 +36,6 @@ app.get('/search', (req, res) => {
 app.post('/search', (req, res) => {
     return res.render('');
 });
-app.listen(port, () => {
+        app.listen(port, () => {
     console.log(`Server starting at port ${port}`);
 });
