@@ -1,9 +1,33 @@
-                @import 'variables';
-                h1 {
-                    font-size: 100px;
-                    color: red;
-                }
-                
-                h2 {
-                    color: blue;
-                }
+@import 'variables';
+h1 {
+    font-size: 100px;
+    color: red;
+}
+
+h2 {
+    color: blue;
+}
+
+.card-course-item {
+    margin-top: 10px;
+}
+
+.avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.trash {
+    text-decoration: none;
+}
+
+.checkbox-select-all-option {
+    width: 200px;
+    margin: 0 10px;
+}
+
+.form-checkbox-all {
+    margin: 10px
+}

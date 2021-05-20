@@ -2,32 +2,42 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const methodOverride = require('method-override')
 const app = express();
 const port = 3005;
 
-const route = require('./routes')
+const route = require('./routes');
+const db = require('./config/db')
+
+const SortMiddleware = require('./app/middlewares/sortMiddleware')
+//connect to database
+db.connect()
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
     express.urlencoded({
         extended: true,
     }),
 );
-
+app.use(SortMiddleware)
 app.use(express.json());
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
+app.use(methodOverride('_method'))
 // template engine
 app.engine(
     'hbs',
     exphbs({
         extname: '.hbs',
+        helpers: require('./app/helper/handlebars')
     }),
+    
 );
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources','views'));
 
 //route  init
-route(app)
+route(app);
 
 app.listen(port, () => {
-    console.log(`Server starting at port ${port}`               );
+    console.log(`Server starting at port ${port}`);
 });
