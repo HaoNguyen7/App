@@ -2,7 +2,9 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override')
+const axios = require('axios');
 const app = express();
 const port = 3005;
 
@@ -21,6 +23,7 @@ app.use(
 );
 app.use(SortMiddleware)
 app.use(express.json());
+app.use(cookieParser());
 // app.use(morgan('combined'));
 app.use(methodOverride('_method'))
 // template engine
