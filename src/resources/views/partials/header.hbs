@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+{{!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="/">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -22,6 +22,80 @@
             <a class="dropdown-item" href="/me/stored/courses">Khóa học của tôi</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/me/stored/news">Bài viết của tôi</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/auth/logout">Đăng xuất</a>
+          </div>
+        </li>
+        {{/if}}
+        {{#unless user}}
+        <li class="nav-item"><a class="nav-link" href="/auth/login">Đăng nhập</a></li>
+        <li class="nav-item"><a class="nav-link" href="/auth/signup">Đăng ký</a></li>
+
+        {{/unless}}
+      </ul>
+    </div>
+  </div>
+</nav> --}}
+
+
+{{!-- <nav>
+  <div class="header-area">
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <div class="site-logo">
+              <h2>BE-ONE</h2>
+              <a data-toggle="tooltip" title="Be-one" href="/"></a>
+            </div>
+          </div>
+          <div class="col-6 d-lg-none static text-right">
+            <div class="show-mobile-menu"></div>
+          </div>
+          <div class="col-lg-9 text-right d-none d-lg-block">
+            <nav class="menu-wrapper">
+              <ul class="main-menu" id="mobile-menu">
+                <li class="active"><a href="/">Home</a></li>
+
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav> --}}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Start Bootstrap</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Trang chủ
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        {{#if user}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" alt=""
+              class="avatar">
+            {{user.name}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/courses/create">Đăng khóa học</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/me/stored/courses">Khóa học của tôi</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/me/stored/news">Bài viết của tôi</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/user/{{user._id}}">Tài khoản của tôi</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/auth/logout">Đăng xuất</a>
           </div>

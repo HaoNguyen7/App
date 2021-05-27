@@ -11,6 +11,12 @@ const CourseSchema = new Schema({
     videoId: { type: String,required:true },
     level: { type: String,maxLength:255 },
     slug: { type: String, slug: "name",unique:true },
+    author:{type: Schema.Types.ObjectId,
+      ref: "User",},
+      category:{
+        type: Schema.Types.ObjectId,
+        ref: "Category",
+      }
   },{
     timestamps:true
   });

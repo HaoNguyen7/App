@@ -9,7 +9,19 @@ const UserSchema = new Schema({
     email: { type: String,maxLength:600 },
     avatar: { type: String,maxLength:255 },
     password: { type: String,required:true },
-    role:{type:String,default:'client'}
+    role:{type:String,default:'client'},
+    myOwnCourses: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Course",
+      },
+    ],
+    myCourses: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Course",
+      },
+    ],
   },{
     timestamps:true
   });

@@ -1,43 +1,50 @@
-<div class="mt-4">
-    <a href="/me/stored/courses">Danh sách khóa học</a>
-    <h2>Khóa học đã xóa</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Tên khóa học</th>
-                <th scope="col">Cấp độ</th>
-                <th scope="col">Thời gian xóa</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each courses}}
-            <tr>
-                <th scope="row">{{sum @index 1}}</th>
-                <td>{{this.name}}</td>
-                <td>{{this.level}}</td>
-                <td>{{this.deletedAt}}</td>
-                <td>
-                    <a id="btn-restore" href="" class="btn btn-secondary btn-md btn-restore active"
-                        data-id="{{this._id}}" role="button" aria-pressed="true">Khôi
-                        phục</a>
-                    <a href="" class="btn btn-danger btn-md active" role="button" aria-pressed="true"
-                        data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Xóa vĩnh viễn</a>
+<div class="container">
+    <div class="card" style="width:100%;margin-top:100px;">
+        <div class="mt-4">
+            <a href="/me/stored/courses">Danh sách khóa học</a>
+            <h2>Khóa học đã xóa</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tên khóa học</th>
+                        <th scope="col">Cấp độ</th>
+                        <th scope="col">Thời gian xóa</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each courses}}
+                    <tr>
+                        <th scope="row">{{sum @index 1}}</th>
+                        <td>{{this.name}}</td>
+                        <td>{{this.level}}</td>
+                        <td>{{this.deletedAt}}</td>
+                        <td>
+                            <a id="btn-restore" href="" class="btn btn-secondary btn-md btn-restore active"
+                                data-id="{{this._id}}" role="button" aria-pressed="true">Khôi
+                                phục</a>
+                            <a href="" class="btn btn-danger btn-md active" role="button" aria-pressed="true"
+                                data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Xóa vĩnh
+                                viễn</a>
 
-                </td>
-            </tr>
-            {{else}}
-            <tr>
-                <td class="text-center" colspan="5">
-                    Thùng rác rỗng
-                    <a href="/me/stored/courses">Danh sách khóa học</a>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+                        </td>
+                    </tr>
+                    {{else}}
+                    <tr>
+                        <td class="text-center" colspan="5">
+                            Thùng rác rỗng
+                            <a href="/me/stored/courses">Danh sách khóa học</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+
 
 {{!-- confirm dialog --}}
 
